@@ -1,5 +1,3 @@
-import React, { Component } from "react";
-
 import { Col, Container, Form, FormGroup, Input, Label, Row } from "reactstrap";
 
 import HomeUrl from '../assets/images/home-border.png';

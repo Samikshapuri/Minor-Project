@@ -107,7 +107,7 @@ export default class Pricing extends Component {
               </Col>
             </Row>
             <Row className="mt-5 pt-4">
-              {/* Render Pricing items */}
+              
               {this.state.pricing.map((item, key) => (
                 <Col lg="4" key={key}>
                   <div className="pricing-box mt-4">

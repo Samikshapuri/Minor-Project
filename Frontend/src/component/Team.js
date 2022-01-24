@@ -7,10 +7,10 @@ import Slider from "react-slick";
 
 import HomeUrl from '../assets/images/home-border.png';
 
-import Img1 from '../assets/images/users/img-1.png';
+import Img1 from '../assets/images/users/megha.jpg';
 import Img2 from '../assets/images/users/img-2.png';
-import Img3 from '../assets/images/users/img-3.png';
-import Img4 from '../assets/images/users/img-4.png';
+import Img3 from '../assets/images/users/sarthak.jpg';
+import Img4 from '../assets/images/users/yukt.jpg';
 
 export default class Contact extends Component {
   constructor(props) {
@@ -20,29 +20,29 @@ export default class Contact extends Component {
         {
           id: 1,
           img: Img1,
-          name: 'Calvin Hubbard',
-          nickname: '#Calvin',
+          name: 'Megha Gupta',
+          nickname: 'megha',
           description: 'Anterdum maleada fames Integer molestie ante primis nulla facibus felis ulputate platea elit.'
         },
         {
           id: 2,
           img: Img2,
-          name: 'Jeremiah Eskew',
-          nickname: '#Jeremiah',
+          name: 'Samiksha Puri',
+          nickname: 'samiksha',
           description: 'Anterdum maleada fames Integer molestie ante primis nulla facibus felis ulputate platea elit.'
         },
         {
           id: 3,
           img: Img3,
-          name: 'Zachary Tevis',
-          nickname: '#Zachary',
+          name: 'Sarthak Saxena',
+          nickname: 'sarthak',
           description: 'Anterdum maleada fames Integer molestie ante primis nulla facibus felis ulputate platea elit.'
         },
         {
           id: 4,
           img: Img4,
-          name: 'William Alderman',
-          nickname: '#William',
+          name: 'Yukt Kataria',
+          nickname: 'yukt',
           description: 'Anterdum maleada fames Integer molestie ante primis nulla facibus felis ulputate platea elit.'
         },
       ],
@@ -103,7 +103,7 @@ export default class Contact extends Component {
             <Row>
               <Col lg="12">
                 <div className="title-box text-center">
-                  <h3 className="title-heading mt-4">Meet Our Expert People </h3>
+                  <h3 className="title-heading mt-4">Meet Our Experts</h3>
                   <p className="text-muted f-17 mt-3">Vivamus ac nulla ultrices laoreet neque mollis mi morbi elementum mauris sit amet arcu <br /> fringilla auctor In eleifend maximus nisi sed vulputate.</p>
                   <img src={HomeUrl} height="15" className="mt-3" alt="" />
                 </div>
