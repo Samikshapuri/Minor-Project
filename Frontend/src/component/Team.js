@@ -125,7 +125,7 @@ export default class Contact extends Component {
             <Row className="justify-content-center">
               <Col lg={9}>
                 <div className="text-center">
-                  <h2>Get Started With <span className="text-primary">Thamza</span></h2>
+                  <h2>Get Started With <span className="text-primary">Covisure</span></h2>
                   <p className="text-muted mt-3">Quisque iaculis urna eu magna semper quis ultrices lectus efficitur
                   Praesent convallis
                   velit urna, vitae tristique tellus feugiat a maecenas diam metus convallis id cursus vel

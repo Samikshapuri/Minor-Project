@@ -3,7 +3,7 @@ import { Col, Container, Form, FormGroup, Input, Label, Row , Button} from "reac
 import { Link } from "react-router-dom";
 
 import Feature4 from '../assets/images/features/img-4.png';
-import LogoDark from '../assets/images/logo-dark.png';
+import LogoDark from '../assets/images/Covisure.png';
 
 export default class ForgotPassword extends Component {
 
@@ -41,7 +41,7 @@ export default class ForgotPassword extends Component {
                               <div className="p-4">
                                 <div className="text-center mt-3">
                                   <Link to="#"><img src={LogoDark} alt=""
-                                    height="22" /></Link>
+                                    height="32" /></Link>
                                   <p className="text-muted mt-3">Reset Password</p>
                                 </div>
                                 <div className="p-3 custom-form">

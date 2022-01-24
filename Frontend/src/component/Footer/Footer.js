@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col, Form, Button, Input} from "reactstrap";
 import FooterLink from "../Footer/Footer_link";
 
-import LogoDark from '../../assets/images/logo-dark.png';
+import LogoDark from '../../assets/images/Covisure.png';
 
 class Footer extends Component {
   constructor(props) {
@@ -44,7 +44,7 @@ class Footer extends Component {
             <Row>
               <Col lg={4}>
                 <div className="footer-info mt-4">
-                  <img src={LogoDark} alt="" height="22" />
+                  <img src={LogoDark} alt="" height="32" />
                   <p className="text-muted mt-4 mb-2">Aenean lacus enim Praesent congue praesent viverra interdum
                             maximus lobortis.</p>
                   <div className="team-social mt-4 pt-2">

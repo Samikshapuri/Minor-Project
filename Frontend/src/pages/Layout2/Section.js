@@ -34,7 +34,7 @@ class Section extends Component {
                 <Row className="justify-content-center">
                   <Col lg={9}>
                     <div className="home-content text-center">
-                      <p className="mb-0 text-white">Digital Marketing</p>
+                      <p className="mb-0 text-white">Web Portal</p>
                       <img src={HomeUrl} height="15" alt="" />
                       <h1 className="mt-4 pt-3 home-title text-white">Predict your disease with <span className="element text-primary" data-elements="Covisure"><Typewriter
                               options={{

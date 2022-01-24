@@ -17,11 +17,10 @@ class Layout2 extends Component {
     this.state = {
       navItems: [
         { id: 1, idnm: "home", navheading: "Home" },
-        { id: 3, idnm: "services", navheading: "Services" },
-        { id: 4, idnm: "pricing", navheading: "Pricing" },
-        { id: 5, idnm: "team", navheading: "Team" },
-        { id: 6, idnm: "clients", navheading: "Clients" },
-        { id: 7, idnm: "contact", navheading: "Contact" },
+        { id: 2, idnm: "services", navheading: "Services" },
+        { id: 3, idnm: "team", navheading: "Team" },
+        { id: 4, idnm: "clients", navheading: "Feedback" },
+        { id: 5, idnm: "contact", navheading: "Contact" },
       ],
       pos: document.documentElement.scrollTop,
       imglight: true,

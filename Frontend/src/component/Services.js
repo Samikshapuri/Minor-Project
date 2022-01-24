@@ -66,7 +66,7 @@ export default class Services extends Component {
             <Row>
               <Col lg="12">
                 <div className="title-box text-center">
-                  <h3 className="title-heading mt-4">Provide Awesome Services </h3>
+                  <h3 className="title-heading mt-4">We're here to help!</h3>
                   <p className="text-muted f-17 mt-3">Counter the spread of COVID-19 by providing timely information and resources to the people
                    <br /> Early detection and diagnosis decreases mortality rate by ensuring efficient resource allocation and treatment planning</p>
 
