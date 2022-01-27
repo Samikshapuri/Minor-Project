@@ -82,7 +82,7 @@ class NavbarPage extends Component {
                     </NavItem>
                   ))}
                 </Nav>
-                
+
               </ScrollspyNav>
               <ul className="navbar-nav navbar-center">
                   <li className="nav-item">
@@ -91,10 +91,15 @@ class NavbarPage extends Component {
                   <li className="nav-item d-inline-block d-lg-none">
                     <Link to="/SignUp" className="nav-link">Sign Up</Link>
                   </li>
+                  <li className="nav-item">
+                    <Link to="/stats" className="nav-link">Statistics</Link>
+                  </li>
                 </ul>
                 <div className="navbar-button d-none d-lg-inline-block">
                   <Link to="/SignUp" className="btn btn-sm btn-soft-primary btn-round">Sign Up</Link>
                 </div>
+
+
             </Collapse>
           </Container>
         </Navbar>
