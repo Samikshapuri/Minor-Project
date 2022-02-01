@@ -1,93 +1,84 @@
-import React, { Component } from "react";
-import { Col, Container, Form, FormGroup, Row, Button, Input, Label } from "reactstrap";
+import { Col, Container, Row, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Modal,  Button } from "react-bootstrap";
+import React from "react";
+import { useState } from "react";
 
-import Feature4 from '../assets/images/features/img-4.png';
-import LogoDark from '../assets/images/Covisure.png';
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Centered Modal</h4>
+        <p>
+          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+          consectetur ac, vestibulum at eros.
+        </p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
-export default class Resourceshare extends Component {
-
-  render() {
-    return (
+function resourceshare() {
+  const [modalShow, setModalShow] = useState(false);
+  return (
+    <div>
       <React.Fragment>
         <div className="account-home-btn d-none d-sm-block">
-        <Link to="/" className="text-primary"><i className="mdi mdi-home h1"></i></Link>
+          <Link to="/" className="text-primary">
+            <i className="mdi mdi-home h1"></i>
+          </Link>
         </div>
 
-        <section className="bg-account-pages vh-100">
-          <div className="display-table">
-            <div className="display-table-cell">
-              <Container>
-                <Row className="no-gutters align-items-center">
-                  <Col lg={12}>
-                    <div className="login-box">
-                      <Row className="align-items-center no-gutters">
-                        <Col lg={6}>
-                          <div className="bg-light">
-                            <div className="row justify-content-center">
-                              <div className="col-lg-10">
-                                <div
-                                  className="home-img login-img text-center d-none d-lg-inline-block">
-                                  <div className="animation-2"></div>
-                                  <div className="animation-3"></div>
-                                  <img src={Feature4} className="img-fluid" alt="" />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </Col>
-                        <Col lg={6}>
-                          <Row className="justify-content-center">
-                            <Col lg={11}>
-                              <div className="p-4">
-                                <div className="text-center mt-3">
-                                  <Link to="#"><img src={LogoDark} alt=""
-                                    height="32" /></Link>
-                                  <p className="text-muted mt-3">Resource Sharinng</p>
-                                </div>
-                                <div className="p-3 custom-form">
-                                  <Form>
-                                    <FormGroup>
-                                      <Label for="firstname">First Name</Label>
-                                      <Input type="text" className="form-control" id="firstname" placeholder="First Name" />
-                                    </FormGroup>
-                                    <FormGroup>
-                                      <Label for="email">Email</Label>
-                                      <Input type="password" className="form-control" id="email" placeholder="Enter Email" />
-                                    </FormGroup>
-                                    <FormGroup>
-                                      <Label for="userpassword">Password</Label>
-                                      <Input type="password" className="form-control" id="userpassword" placeholder="Enter password" />
-                                    </FormGroup>
-                                    <div className="custom-control custom-checkbox">
-                                      <Input type="checkbox" className="custom-control-input"
-                                        id="customControlInline" />
-                                      <Label className="custom-control-label"
-                                        for="customControlInline">Remember me</Label>
-                                    </div>
-                                    <div className="mt-3">
-                                      <Button color="primary" className="btn btn-primary btn-block" block>Sign in</Button>
-                                    </div>
-                                    <div className="mt-4 pt-1 mb-0 text-center">
-                                      <p className="mb-0">Don't have an account ?
-                                      <Link to="/Login" className="text-success"> Sign in</Link></p>
-                                    </div>
-                                  </Form>
-                                </div>
-                              </div>
-                            </Col>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </div>
-                  </Col>
-                </Row>
-              </Container>
-            </div>
-          </div>
-        </section>
-
+        <Container fluid>
+          <Row>
+            <Col className="resource-nav" lg={2}>
+              <Navbar collapseOnSelect expand="lg" variant="light" fixed="left">
+                <Container className="resource-nav-column">
+                  <Navbar.Brand href="#home">Resource-Sharing</Navbar.Brand>
+                  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                  <Navbar.Collapse
+                    id="responsive-navbar-nav"
+                    className="nav-resource-collapse"
+                  >
+                    <Nav className="me-auto" justify variant="tabs">
+                      <Nav.Link
+                        href="#offers"
+                        onClick={() => setModalShow(true)}
+                      >
+                        &nbsp; Offers &nbsp;
+                        <MyVerticallyCenteredModal
+                          show={modalShow}
+                          onHide={() => setModalShow(false)}
+                        />
+                      </Nav.Link>
+                      <Nav.Link href="#requests">Requests</Nav.Link>
+                      <Nav.Link href="#map">Map</Nav.Link>
+                    </Nav>
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
+            </Col>
+            <Col lg={6}></Col>
+            <Col lg={4}></Col>
+          </Row>
+        </Container>
       </React.Fragment>
-    );
-  }
+    </div>
+  );
 }
+
+export default resourceshare;

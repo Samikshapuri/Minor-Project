@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 
 import "./assets/css/materialdesignicons.min.css";
+import "./assets/css/cssFiles/resources.css";
 
 import "./assets/scss/themes.scss";
 
