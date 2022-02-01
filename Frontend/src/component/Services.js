@@ -13,20 +13,23 @@ export default class Services extends Component {
         {
           id: 'service1',
           icon: 'mdi-virus',
-          title: "Covid 19 Predctor",
-          description: "disease detection based on patient's data"
+          title: "Covid 19 Predictor",
+          description: "disease detection based on patient's data",
+          link: "/Predictor"
         },
         {
           id: 'service2',
           icon: 'mdi-account-group',
           title: "Resource Sharing",
-          description: 'connect users seeking medical amenities to those willing to provide them'
+          description: 'connect users seeking medical amenities to those willing to provide them',
+          link: "/Resourceshare"
         },
         {
           id: 'service3',
           icon: 'mdi-google-maps',
           title: "Global Statistics",
-          description: 'global stats and latest information about COVID-19'
+          description: 'global stats and latest information about COVID-19',
+          link: "/stats"
         },
       ],
       counters: [
@@ -87,7 +90,7 @@ export default class Services extends Component {
                     <p className="text-muted mt-3">{item.description}</p>
 
                     <div className="mt-3">
-                      <Link to="#" className="text-primary f-16">Learn More <i className="mdi mdi-arrow-right ml-1"></i></Link>
+                      <Link to={item.link} className="text-primary f-16">Learn More <i className="mdi mdi-arrow-right ml-1"></i></Link>
                     </div>
 
                   </div>

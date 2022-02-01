@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Feature4 from '../assets/images/features/img-4.png';
 import LogoDark from '../assets/images/Covisure.png';
 
-export default class stats extends Component {
+export default class Predictor extends Component {
 
   render() {
     return (
@@ -43,7 +43,7 @@ export default class stats extends Component {
                                 <div className="text-center mt-3">
                                   <Link to="#"><img src={LogoDark} alt=""
                                     height="32" /></Link>
-                                  <p className="text-muted mt-3">Statistics</p>
+                                  <p className="text-muted mt-3">Covid Predictor</p>
                                 </div>
                                 <div className="p-3 custom-form">
                                   <Form>
