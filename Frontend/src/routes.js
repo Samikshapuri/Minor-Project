@@ -1,4 +1,4 @@
-
+//jshint esversion:6
 import Layout2 from "../src/pages/Layout2/Layout2";
 import Login from "../src/component/Login";
 import SignUp from "../src/component/SignUp";
@@ -12,7 +12,9 @@ const routes = [
   { path: "/SignUp", component: SignUp },
   { path: "/ForgotPassword", component: ForgotPassword },
   { path: "/Predictor", component: Predictor },
-  { path: "/Resourceshare", component: Resourceshare },
+  { path: "/Header", component: Predictor },
+  { path: "/Map", component: Predictor },
+  { path: "/resourceshare", component: Resourceshare },
   { path: "/stats", component: Statistics },
   { path: "/", component: Layout2 },  
 ];
