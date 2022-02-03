@@ -1,5 +1,5 @@
 .resource-nav{
-    position: fixed;
+
     top: 0;
     bottom: 0;
     left: 0;
@@ -7,6 +7,10 @@
     z-index: 100;
     padding: 48px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.home-center{
+    opacity: 0.9;
 }
 
 .resource-nav-column{
@@ -18,3 +22,37 @@
     flex-direction: column;
     text-align: center;   
 }
+
+.hidden-col2{
+    opacity: 0;
+}
+
+.rightmost-col2{
+    opacity: 1;
+    margin: auto;
+    padding: 10px;
+}
+
+.user-list{
+    padding: 10px;
+    margin: 10px;
+}
+
+.user-list>.posts{
+    border-radius: 5px;
+    border-top: 3px solid yellowgreen;
+}
+
+/*.card>.card-body>.img-card{
+    position: absolute;
+    right: 5px;
+    top: 15px;
+    height: 15px;
+    width: 15px;
+    z-index: 2000;
+}
+
+.card>.card-body{
+    position: relative;
+ }*/
+ 

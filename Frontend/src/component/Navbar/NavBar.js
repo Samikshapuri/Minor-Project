@@ -44,7 +44,6 @@ class NavbarPage extends Component {
           id="navbar"
         >
           <Container>
-          {/* LOGO */}
           <NavbarBrand className="navbar-brand logo text-uppercase" href="/">
               {this.props.imglight === true ? (
                 <img src={logolight} alt="" height="42" />
@@ -90,9 +89,8 @@ class NavbarPage extends Component {
                   </li>
                   <li className="nav-item d-inline-block d-lg-none">
                     <Link to="/SignUp" className="nav-link">Sign Up</Link>
-                  </li>
-                  
-                </ul>
+                  </li>                  
+              </ul>
                 <div className="navbar-button d-none d-lg-inline-block">
                   <Link to="/SignUp" className="btn btn-sm btn-soft-primary btn-round">Sign Up</Link>
                 </div>
