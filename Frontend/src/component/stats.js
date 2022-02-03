@@ -1,5 +1,5 @@
 //jshint esversion:6
-import React,  { Component } from "react";
+import React, {Component} from "react";
 //  import { useState, useEffect } from "react";
 import Header from "./Header";
 import Map from "./Map";
