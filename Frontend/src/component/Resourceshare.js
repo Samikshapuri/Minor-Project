@@ -81,6 +81,7 @@ const USERS = [
 
 function Resourceshare() {
   const [modalShow, setModalShow] = useState(false);
+  const [modalShow1, setModalShow1] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
@@ -139,7 +140,7 @@ function Resourceshare() {
                       </Nav.Link>
                       <Nav.Link
                         href="#requests"
-                        onClick={() => setModalShow(true)}
+                        onClick={() => setModalShow1(true)}
                       >
                         {show ? (
                           <i className="mdi mdi-account-plus h4"></i>
@@ -192,10 +193,9 @@ function Resourceshare() {
                     {foundUsers && foundUsers.length > 0 ? (
                       foundUsers.map((user) => (
                         <Col lg={5} md={4} className="user-list">
-                          <Card className="posts">                          
+                          <Card className="posts">
                             <Card.Img variant="bottom" src={user.src} />
                             <Card.Body>
-                            
                               <Card.Title>{user.id}</Card.Title>
                               <Card.Text>{user.name}</Card.Text>
                             </Card.Body>
@@ -216,6 +216,10 @@ function Resourceshare() {
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
+      <MyCenteredModal
+        show={modalShow1}
+        onHide={() => setModalShow1(false)}
+      />
     </div>
   );
 }
@@ -232,16 +236,148 @@ function MyVerticallyCenteredModal(props) {
     >
       <Modal.Header>
         <Modal.Title id="contained-modal-title-vcenter">
-          Make an offer / request
+          Make an offer
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Post</h4>
-        <p>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </p>
+        <Form>
+          <Form.Group
+            as={Col}
+            className="mb-3 form-post"
+            controlId="formPlaintextPassword"
+          >
+            <Form.Control
+              type="password"
+              placeholder="What help can you offer?"
+            />
+            <br></br>
+            <Form.Control
+              as="textarea"
+              type="password"
+              placeholder="Add a description"
+              rows={4}
+            />
+          </Form.Group>
+          <hr></hr>
+          <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+            <Form.Label column sm="2">
+              Topics
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="text" placeholder="Add atleast 3 topics" />
+            </Col>
+          </Form.Group>
+          <hr></hr>
+          <Form.Group as={Row} className="mb-3" controlId="formPlaintextname">
+            <Form.Label column sm="2">
+              Name
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="text" placeholder="Organization's Name" />
+            </Col>
+          </Form.Group>{" "}
+          <hr></hr>
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formPlaintextlocation"
+          >
+            <Form.Label column sm="2">
+              Location
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="text" placeholder="Add your location" />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} controlId="formFile" className="mb-3">
+            <Form.Label column sm="2"><i className="mdi mdi-folder-multiple-image h4"></i>Add Image</Form.Label>
+            <Col sm="10">
+              <Form.Control type="file" />
+            </Col>
+          </Form.Group>
+        </Form>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+        <Button>Post</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
+
+
+//Request
+
+function MyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Make a request
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form>
+          <Form.Group
+            as={Col}
+            className="mb-3 form-post"
+            controlId="formPlaintextPassword"
+          >
+            <Form.Control
+              type="password"
+              placeholder="What help can you offer?"
+            />
+            <br></br>
+            <Form.Control
+              as="textarea"
+              type="password"
+              placeholder="Add a description"
+              rows={4}
+            />
+          </Form.Group>
+          <hr></hr>
+          <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+            <Form.Label column sm="2">
+              Topics
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="text" placeholder="Add atleast 3 topics" />
+            </Col>
+          </Form.Group>
+          <hr></hr>
+          <Form.Group as={Row} className="mb-3" controlId="formPlaintextname">
+            <Form.Label column sm="2">
+              Name
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="text" placeholder="Organization's Name" />
+            </Col>
+          </Form.Group>{" "}
+          <hr></hr>
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formPlaintextlocation"
+          >
+            <Form.Label column sm="2">
+              Location
+            </Form.Label>
+            <Col sm="10">
+              <Form.Control type="text" placeholder="Add your location" />
+            </Col>
+          </Form.Group>
+          <Form.Group as={Row} controlId="formFile" className="mb-3">
+            <Form.Label column sm="2"><i className="mdi mdi-folder-multiple-image h4"></i>Add Image</Form.Label>
+            <Col sm="10">
+              <Form.Control type="file" />
+            </Col>
+          </Form.Group>
+        </Form>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
