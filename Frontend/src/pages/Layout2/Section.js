@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 
-// Modal Video
-//import ModalVideo from "react-modal-video";
-//import "../../../node_modules/react-modal-video/scss/modal-video.scss";
-
 //import images
 import HomeUrl from '../../assets/images/home-border.png';
 import Typewriter from 'typewriter-effect';
@@ -47,18 +43,12 @@ class Section extends Component {
                       <p className="text-white-50 mt-4 f-20">Resource sharing platform <br /> Covid - 19 predictor</p>
                       <div className="mt-4 pt-2">
                         <Link to="#" className="btn btn-primary mr-3">Contact Us</Link>
-                        {/*<Link to="#" className="video-play-icon text-white" onClick={this.openModal}><i className="mdi mdi-play-circle-outline text-white mr-2"></i>Watch Intro Video</Link>*/}
+                        
                       </div>
                     </div>
                   </Col>
                 </Row>
               </Container>
-              {/*<ModalVideo
-                channel="vimeo"
-                isOpen={this.state.isOpen}
-                videoId="99025203"
-                onClose={() => this.setState({ isOpen: false })}
-              />*/}
             </div>
           </div>
         </section>

@@ -1,62 +1,213 @@
-import { Col, Container, Row, Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { Modal, Button} from "react-bootstrap";
+import {
+  Col,
+  Container,
+  Row,
+  Navbar,
+  Nav,
+  Modal,
+  Button,
+  Form,
+  FormControl,
+  Card,
+} from "react-bootstrap";
 import React from "react";
 import { useState } from "react";
+
+const USERS = [
+  {
+    id: 1,
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Andy",
+    age: 32,
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    id: 2,
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Bob",
+    age: 30,
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    id: 3,
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Tom Hulk",
+    age: 40,
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    id: 4,
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Tom Hank",
+    age: 50,
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    id: 5,
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Audra",
+    age: 30,
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    id: 6,
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Anna",
+    age: 68,
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    id: 7,
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Tom",
+    age: 34,
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    id: 8,
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Tom Riddle",
+    age: 28,
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    id: 9,
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Bolo",
+    age: 23,
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+];
 
 function Resourceshare() {
   const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
+
+  const [name, setName] = useState("");
+
+  // the search result
+  const [foundUsers, setFoundUsers] = useState(USERS);
+
+  const filter = (e) => {
+    const keyword = e.target.value;
+
+    if (keyword !== "") {
+      const results = USERS.filter((user) => {
+        return user.name.toLowerCase().startsWith(keyword.toLowerCase());
+        // Use the toLowerCase() method to make it case-insensitive
+      });
+      setFoundUsers(results);
+    } else {
+      setFoundUsers(USERS);
+      // If the text field is empty, show all users
+    }
+
+    setName(keyword);
+  };
 
   return (
     <div>
       <React.Fragment>
         <Container fluid>
           <Row>
-            <Col className="resource-nav" lg={2}>
-              <Row>
-                <div className="account-home-btn d-none d-sm-block">
-                  <Link to="/" className="text-primary">
-                    <i className="mdi mdi-home h1"></i>
-                  </Link>
-                </div>
-              </Row>
+            <Col className="resource-nav" lg={show ? 1 : 2}>
               <Navbar collapseOnSelect expand="lg" variant="light" fixed="left">
                 <Container className="resource-nav-column">
-                  <Navbar.Brand href="#home">Resource-Sharing</Navbar.Brand>
+                  <Navbar.Brand href="#home">
+                    {show ? " " : "Resource-Sharing"}
+                  </Navbar.Brand>
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   <Navbar.Collapse
                     id="responsive-navbar-nav"
                     className="nav-resource-collapse"
                   >
                     <Nav className="me-auto" justify variant="tabs">
+                      <Nav.Link href="/">
+                        {show ? <i className="mdi mdi-home h4"></i> : "Home"}
+                      </Nav.Link>
                       <Nav.Link
                         href="#offers"
                         onClick={() => setModalShow(true)}
                       >
-                        &nbsp; Offers &nbsp;
+                        {show ? (
+                          <i className="mdi mdi-account-multiple h4"></i>
+                        ) : (
+                          "Offers"
+                        )}
                       </Nav.Link>
                       <Nav.Link
                         href="#requests"
                         onClick={() => setModalShow(true)}
                       >
-                        Requests
+                        {show ? (
+                          <i className="mdi mdi-account-plus h4"></i>
+                        ) : (
+                          "Requests"
+                        )}
                       </Nav.Link>
-                      <Nav.Link href="#map">Map</Nav.Link>
+                      <Nav.Link href="#map">
+                        {show ? (
+                          <i className="mdi mdi-google-maps h4"></i>
+                        ) : (
+                          "Map"
+                        )}
+                      </Nav.Link>
                     </Nav>
                   </Navbar.Collapse>
                 </Container>
               </Navbar>
             </Col>
-            <Col>
-            <div className="account-home-btn d-none d-sm-block" onClick={toggleShow}>                  
-                    <i className="mdi mdi-menu h1"></i>                  
-                </div>
+            <Col lg={show ? 6 : 10}>
+              <p>
+                <h5>Add map here</h5>
+              </p>
+              <div
+                className="account-home-btn d-none d-sm-block"
+                onClick={toggleShow}
+              >
+                <i className="mdi mdi-menu h1"></i>
+              </div>
             </Col>
-            <Col show={show} onHide={handleClose} lg={3}>
+            <Col
+              show={show}
+              onHide={handleClose}
+              className={show ? "rightmost-col2" : "hidden-col2"}
+              lg={show ? 5 : 0}
+            >
+              <Container>
+                <Form className="d-flex">
+                  <FormControl
+                    type="search"
+                    placeholder="Filter by location and keywords"
+                    className="me-2"
+                    aria-label="Search"
+                    value={name}
+                    onChange={filter}
+                  />
+                </Form>
+                <div>
+                  <Row>
+                    {foundUsers && foundUsers.length > 0 ? (
+                      foundUsers.map((user) => (
+                        <Col lg={5} md={4} className="user-list">
+                          <Card className="posts">                          
+                            <Card.Img variant="bottom" src={user.src} />
+                            <Card.Body>
+                            
+                              <Card.Title>{user.id}</Card.Title>
+                              <Card.Text>{user.name}</Card.Text>
+                            </Card.Body>
+                          </Card>
+                        </Col>
+                      ))
+                    ) : (
+                      <h1>No results found!</h1>
+                    )}
+                  </Row>
+                </div>
+              </Container>
             </Col>
           </Row>
         </Container>
