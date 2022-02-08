@@ -12,71 +12,18 @@ import {
 } from "react-bootstrap";
 import React from "react";
 import { useState } from "react";
+import  MapResources from "./MapResources";
 
 const USERS = [
   {
-    id: 1,
+    title: "Title",
+    topics: "Topics",
     icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    name: "Andy",
-    age: 32,
+    name: "Name",
+    location: "Location",
+    des: "Description of your equipments",
     src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
-  {
-    id: 2,
-    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    name: "Bob",
-    age: 30,
-    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
-  {
-    id: 3,
-    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    name: "Tom Hulk",
-    age: 40,
-    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
-  {
-    id: 4,
-    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    name: "Tom Hank",
-    age: 50,
-    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
-  {
-    id: 5,
-    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    name: "Audra",
-    age: 30,
-    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
-  {
-    id: 6,
-    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    name: "Anna",
-    age: 68,
-    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
-  {
-    id: 7,
-    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    name: "Tom",
-    age: 34,
-    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
-  {
-    id: 8,
-    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    name: "Tom Riddle",
-    age: 28,
-    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
-  {
-    id: 9,
-    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-    name: "Bolo",
-    age: 23,
-    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },
+  },  
 ];
 
 function Resourceshare() {
@@ -113,7 +60,7 @@ function Resourceshare() {
       <React.Fragment>
         <Container fluid>
           <Row>
-            <Col className="resource-nav" lg={show ? 1 : 2}>
+            <Col className="resource-nav" lg={show ? 1 : 2}  >
               <Navbar collapseOnSelect expand="lg" variant="light" fixed="left">
                 <Container className="resource-nav-column">
                   <Navbar.Brand href="#home">
@@ -148,7 +95,7 @@ function Resourceshare() {
                           "Requests"
                         )}
                       </Nav.Link>
-                      <Nav.Link href="#map">
+                      <Nav.Link href="/resourceshare">
                         {show ? (
                           <i className="mdi mdi-google-maps h4"></i>
                         ) : (
@@ -160,10 +107,10 @@ function Resourceshare() {
                 </Container>
               </Navbar>
             </Col>
-            <Col lg={show ? 6 : 10}>
-              <p>
-                <h5>Add map here</h5>
-              </p>
+            <Col lg={show ? 6 : 10} className="col-2-res">
+              
+                <MapResources/>
+              
               <div
                 className="account-home-btn d-none d-sm-block"
                 onClick={toggleShow}
@@ -191,13 +138,15 @@ function Resourceshare() {
                 <div>
                   <Row>
                     {foundUsers && foundUsers.length > 0 ? (
-                      foundUsers.map((user) => (
+                      foundUsers.map((USERS) => (
                         <Col lg={5} md={4} className="user-list">
-                          <Card className="posts">
-                            <Card.Img variant="bottom" src={user.src} />
+                          <Card className="posts">                            
                             <Card.Body>
-                              <Card.Title>{user.id}</Card.Title>
-                              <Card.Text>{user.name}</Card.Text>
+                            <Card.Text>{USERS.name}<br></br>{USERS.location}</Card.Text>
+                              
+                              <Card.Img variant="bottom" src={USERS.src} />
+                              <Card.Title>{USERS.title}</Card.Title>
+                              <Card.Text>{USERS.des}</Card.Text>
                             </Card.Body>
                           </Card>
                         </Col>
@@ -249,6 +198,7 @@ function MyVerticallyCenteredModal(props) {
             <Form.Control
               type="password"
               placeholder="What help can you offer?"
+              value={USERS.title}
             />
             <br></br>
             <Form.Control
@@ -256,6 +206,7 @@ function MyVerticallyCenteredModal(props) {
               type="password"
               placeholder="Add a description"
               rows={4}
+              value={USERS.des}
             />
           </Form.Group>
           <hr></hr>
@@ -264,7 +215,7 @@ function MyVerticallyCenteredModal(props) {
               Topics
             </Form.Label>
             <Col sm="10">
-              <Form.Control type="text" placeholder="Add atleast 3 topics" />
+              <Form.Control type="text" placeholder="Add atleast 3 topics" value={USERS.topics}  />
             </Col>
           </Form.Group>
           <hr></hr>
@@ -273,7 +224,7 @@ function MyVerticallyCenteredModal(props) {
               Name
             </Form.Label>
             <Col sm="10">
-              <Form.Control type="text" placeholder="Organization's Name" />
+              <Form.Control type="text" placeholder="Organization's Name" value={USERS.name} />
             </Col>
           </Form.Group>{" "}
           <hr></hr>
@@ -286,7 +237,7 @@ function MyVerticallyCenteredModal(props) {
               Location
             </Form.Label>
             <Col sm="10">
-              <Form.Control type="text" placeholder="Add your location" />
+              <Form.Control type="text" placeholder="Add your location" value={USERS.location} />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId="formFile" className="mb-3">

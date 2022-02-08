@@ -3,7 +3,7 @@ import React, {Component} from "react";
 
 import Header from "./Header";
 import Map from "./Map";
-
+import Tracker from "./tracker-stats/TrackerStats";
 
 // import {
 //   MenuItem,
@@ -47,7 +47,7 @@ class stats extends Component {
           <div>
             <Header/>
             <Map data={this.state.statistics}/>
-            {/* <Tracker data={this.state.global}/> */}
+            <Tracker data={this.state.global}/>
           </div>
           }
         </div>

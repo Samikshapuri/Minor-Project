@@ -2,6 +2,7 @@
 //jshint esversion:6
 import {MapContainer, TileLayer, Marker,Popup } from 'react-leaflet';
 import React from 'react';
+import 'leaflet/dist/leaflet.css';
 
 
 function Map(props) {
@@ -31,13 +32,4 @@ function Map(props) {
 }
 
 export default Map;
-
-
-
-
-
-
-
-
-
 
