@@ -107,7 +107,7 @@ function Resourceshare() {
                 </Container>
               </Navbar>
             </Col>
-            <Col lg={show ? 6 : 10} className="col-2-res">
+            <Col lg={6} className="col-2-res">
               
                 <MapResources/>
               

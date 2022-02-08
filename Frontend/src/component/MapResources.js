@@ -52,7 +52,7 @@ function DraggableMarker() {
 
 function MapResources() {
   return <div>
-    <MapContainer center={[51.505, -0.09]} zoom={15} style={{ height: '600px', width: '600px' }}>
+    <MapContainer center={[51.505, -0.09]} zoom={15} style={{ height: '600px', width: '700px' }}>
   <TileLayer
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
