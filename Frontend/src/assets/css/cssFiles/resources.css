@@ -1,7 +1,5 @@
 .resource-nav{
-
     top: 0;
-    bottom: 0;
     left: 0;
     min-height: 100vh;
     z-index: 100;
@@ -25,6 +23,7 @@
 
 .hidden-col2{
     opacity: 0;
+    overflow: hidden;
 }
 
 .rightmost-col2{
