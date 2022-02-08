@@ -1,6 +1,6 @@
-//jshint esversion:6
+
 import React, {Component} from "react";
-//  import { useState, useEffect } from "react";
+
 import Header from "./Header";
 import Map from "./Map";
 
@@ -45,7 +45,7 @@ class stats extends Component {
         <div className="App">
           {this.state.loading ? <h1>Please wait</h1>:
           <div>
-            <Header />
+            <Header/>
             <Map data={this.state.statistics}/>
             {/* <Tracker data={this.state.global}/> */}
           </div>

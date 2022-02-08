@@ -54,5 +54,17 @@
 
 .card>.card-body{
     position: relative;
- }*/
- 
+ }
+ input:focus, textarea:focus, select:focus{
+    outline: none;
+}*/
+
+.col-sm-10>input,.mb-3>.form-control{
+    border: none;
+}
+
+
+
+.form-post{
+    padding: 0 30px;
+}
