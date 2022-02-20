@@ -27,7 +27,7 @@ function TrackerStat(props) {
         secondaryText = false;
     }
     else {
-        // primaryText = props.recovered.toLocaleString();
+        primaryText = props.recovered.toLocaleString();
         altText = "Recovered";
         secondaryText = false;
     }
