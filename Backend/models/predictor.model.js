@@ -9,14 +9,13 @@ const predictorSchema = new Schema({
     lower_bp : Number,
     upper_bp : Number,
     card_freq : Number,
-    spo2 : Number
-    // fever : Boolean,
-    // hospital_exp : Number,
-    // sore_throat : Boolean,
-    // loss_of_smell: Number,
-    // loss_of_taste: Boolean,
-    // musclepain: Number
-
+    spo2 : Number,
+    fever : Number,
+    hospital_exp : Number,
+    sore_throat : Number,
+    loss_of_smell: Number,
+    loss_of_taste: Number,
+    musclepain: Number
 });
 
 const Predictor = mongoose.model('Predictor', predictorSchema);

@@ -11,14 +11,13 @@ router.post('/predictor', (req,res)=>{
         lower_bp : req.body.lower_bp,
         upper_bp : req.body.upper_bp,
         card_freq : req.body.card_freq,
-        spo2 : req.body.spo2
-        // fever : req.body.fever,
-        // hospital_exp : req.body.hospital_exp,
-        // sore_throat : req.body.sore_throat,
-        // loss_of_smell: req.body.loss_of_smell,
-        // loss_of_taste: req.body.loss_of_taste,
-        // musclepain: req.body.musclepain
-
+        spo2 : req.body.spo2,
+        fever : req.body.fever,
+        hospital_exp : req.body.hospital_exp,
+        sore_throat : req.body.sore_throat,
+        loss_of_smell: req.body.loss_of_smell,
+        loss_of_taste: req.body.loss_of_taste,
+        musclepain: req.body.musclepain
     })
 
     newPredictor.save()

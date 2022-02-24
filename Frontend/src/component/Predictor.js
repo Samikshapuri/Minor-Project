@@ -20,17 +20,17 @@ function Predictor() {
 
 
     const [name, setName] = useState("");
-    const [temp, setTemp] = useState(null);
-    const [lower_bp, setLower_bp] = useState(null);
-    const [upper_bp, setUpper_bp] = useState(null);
-    const [card_freq, setCard_freq] = useState(null);
-    const [spo2, setSpo2] = useState(null);
-    const [fever, setFever] = useState(false);
-    const [hospital_exp, setHospital_exp] = useState(false);
-    const [sore_throat, setSore_throat] = useState(false);
-    const [loss_of_smell, setLoss_of_smell] = useState(false);
-    const [loss_of_taste, setLoss_of_taste] = useState(false);
-    const [musclepain, setMusclePain] = useState(false);
+    const [temp, setTemp] = useState("");
+    const [lower_bp, setLower_bp] = useState("");
+    const [upper_bp, setUpper_bp] = useState("");
+    const [card_freq, setCard_freq] = useState("");
+    const [spo2, setSpo2] = useState("");
+    const [fever, setFever] = useState(0);
+    const [hospital_exp, setHospital_exp] = useState(0);
+    const [sore_throat, setSore_throat] = useState(0);
+    const [loss_of_smell, setLoss_of_smell] = useState(0);
+    const [loss_of_taste, setLoss_of_taste] = useState(0);
+    const [musclepain, setMusclePain] = useState(0);
 
     const handlePredictorSubmit = async (event)=>{
         
@@ -45,13 +45,13 @@ function Predictor() {
             lower_bp : lower_bp,
             upper_bp : upper_bp,
             card_freq : card_freq,
-            spo2 : spo2
-            // fever : fever,
-            // hospital_exp : hospital_exp,
-            // sore_throat : sore_throat,
-            // loss_of_smell: loss_of_smell,
-            // loss_of_taste: loss_of_taste,
-            // musclepain: musclepain
+            spo2 : spo2,
+            fever : fever,
+            hospital_exp : hospital_exp,
+            sore_throat : sore_throat,
+            loss_of_smell: loss_of_smell,
+            loss_of_taste: loss_of_taste,
+            musclepain: musclepain
           }
 
           await fetch('http://localhost:5000/predictor',{
@@ -94,54 +94,63 @@ function Predictor() {
     }
     
     const handleFeverChange = (event)=>{
-      
-      console.log('hi'+event.target.value);
-      if(event.target.value==='on'){
-        setFever(true);
+
+      if(event.target.checked){
+        setFever(1);        
       }
       else{
-        setFever(false);
+        setFever(0);
       }
     }
     
     const handleHospital_expChange = (event)=>{
-      let n = 1;
-      if(event.target.value===false){
-          n = 0;
+      
+      if(event.target.checked){
+        setHospital_exp(1);        
       }
-      setHospital_exp(n);
+      else{
+        setHospital_exp(0);
+      }  
     }
 
     const handleSore_throatChange = (event)=>{
-      let n = 1;
-      if(event.target.value===false){
-          n = 0;
+      
+      if(event.target.checked){
+        setSore_throat(1);        
       }
-      setSore_throat(n);
+      else{
+        setSore_throat(0);
+      }
     }
 
     const handleSmellChange = (event)=>{
-      let n = 1;
-      if(event.target.value===false){
-          n = 0;
+      
+      if(event.target.checked){
+        setLoss_of_smell(1);        
       }
-      setLoss_of_smell(n);
+      else{
+        setLoss_of_smell(0);
+      }
     }
     
     const handleTasteChange = (event)=>{
-      let n = 1;
-      if(event.target.value===false){
-          n = 0;
+      
+      if(event.target.checked){
+        setLoss_of_taste(1);        
       }
-      setLoss_of_taste(n);
+      else{
+        setLoss_of_taste(0);
+      }
     }
 
     const handleMuscleChange = (event)=>{
-      let n = 1;
-      if(event.target.value===false){
-          n = 0;
+      
+      if(event.target.checked){
+        setMusclePain(1);        
       }
-      setMusclePain(n);
+      else{
+        setMusclePain(0);
+      }
     }
 
     return (
@@ -278,32 +287,47 @@ function Predictor() {
                                   </FormGroup>
 
                                   <FormGroup check>
-                                    <Input type="checkbox" value={hospital_exp}
-                                    onChange={handleHospital_expChange}/>{" "}
+                                    <Input 
+                                      type="checkbox"
+                                      value={hospital_exp}
+                                      onChange={handleHospital_expChange}
+                                    />{" "}
                                     <Label check>Hospital Exposure</Label>
                                   </FormGroup>
 
                                   <FormGroup check>
-                                    <Input type="checkbox" value={sore_throat}
-                                    onChange={handleSore_throatChange}/>{" "}
+                                    <Input 
+                                      type="checkbox" 
+                                      value={sore_throat}
+                                      onChange={handleSore_throatChange}
+                                    />{" "}
                                     <Label check>Sore Throat</Label>
                                   </FormGroup>
 
                                   <FormGroup check>
-                                    <Input type="checkbox" value={loss_of_smell}
-                                    onChange={handleSmellChange}/>{" "}
+                                    <Input 
+                                      type="checkbox" 
+                                      value={loss_of_smell}
+                                      onChange={handleSmellChange}
+                                    />{" "}
                                     <Label check>Loss Of Smell</Label>
                                   </FormGroup>
 
                                   <FormGroup check>
-                                    <Input type="checkbox" value={loss_of_taste}
-                                    onChange={handleTasteChange}/>{" "}
+                                    <Input 
+                                      type="checkbox" 
+                                      value={loss_of_taste}
+                                      onChange={handleTasteChange}
+                                    />{" "}
                                     <Label check>Loss Of Taste</Label>
                                   </FormGroup>
 
                                   <FormGroup check>
-                                    <Input type="checkbox" value={musclepain}
-                                    onChange={handleMuscleChange}/>{" "}
+                                    <Input 
+                                      type="checkbox" 
+                                      value={musclepain}
+                                      onChange={handleMuscleChange}
+                                    />{" "}
                                     <Label check>Muscle Pain</Label>
                                   </FormGroup>
 
