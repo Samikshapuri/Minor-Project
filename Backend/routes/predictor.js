@@ -1,7 +1,9 @@
 const router = require('express').Router();
+const fs = require('fs');
 let Predictor = require('../models/predictor.model');
 
-router.post('/predictor', (req,res)=>{
+router.post('/', (req,res)=>{
+    console.log("Hii");
     console.log(req.body);
 
     const newPredictor = new Predictor({
@@ -18,6 +20,15 @@ router.post('/predictor', (req,res)=>{
         loss_of_smell: req.body.loss_of_smell,
         loss_of_taste: req.body.loss_of_taste,
         musclepain: req.body.musclepain
+    })
+
+    fs.writeFile('./newPredictor.json', JSON.stringify(newPredictor), err =>{
+        if(err){
+          console.log(err);
+        }
+        else{
+          console.log("JSON File for predictor data created");
+        }
     })
 
     newPredictor.save()

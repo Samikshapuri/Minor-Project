@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 
 import {
   Col,
@@ -18,7 +18,7 @@ import LogoDark from "../assets/images/Covisure.png";
 
 function Predictor() {
 
-
+    //State variables for the input fields 
     const [name, setName] = useState("");
     const [temp, setTemp] = useState("");
     const [lower_bp, setLower_bp] = useState("");
@@ -32,40 +32,51 @@ function Predictor() {
     const [loss_of_taste, setLoss_of_taste] = useState(0);
     const [musclepain, setMusclePain] = useState(0);
 
+    // Sending Predictor Data to the Database
     const handlePredictorSubmit = async (event)=>{
         
         event.preventDefault();
         let _id = Math.random();
-
-        try{
-          const predictor_fields = {
-            _id : _id, 
-            name : name,
-            temp : temp,
-            lower_bp : lower_bp,
-            upper_bp : upper_bp,
-            card_freq : card_freq,
-            spo2 : spo2,
-            fever : fever,
-            hospital_exp : hospital_exp,
-            sore_throat : sore_throat,
-            loss_of_smell: loss_of_smell,
-            loss_of_taste: loss_of_taste,
-            musclepain: musclepain
-          }
-
-          await fetch('http://localhost:5000/predictor',{
-            method : 'POST',
-            body : JSON.stringify(predictor_fields),
-            headers : {
-              'Content-Type' : 'application/json'
-            }
-          })
-        }catch{
-          console.log(Error);
+        
+        const predictor_fields = {
+          _id : _id, 
+          name : name,
+          temp : temp,
+          lower_bp : lower_bp,
+          upper_bp : upper_bp,
+          card_freq : card_freq,
+          spo2 : spo2,
+          fever : fever,
+          hospital_exp : hospital_exp,
+          sore_throat : sore_throat,
+          loss_of_smell: loss_of_smell,
+          loss_of_taste: loss_of_taste,
+          musclepain: musclepain
         }
-      }
+        try{
+          const response = await fetch('http://localhost:5000/predictor',{
+              method : 'POST',
+              body : JSON.stringify(predictor_fields),
+              headers : {
+                'Content-Type' : 'application/json'
+              }
+          })
     
+          if (!response.ok) {
+            console.log(response);
+            // get error message from body or default to response status
+            const error = response.message || response.status;
+            return Promise.reject(error);
+          }
+          else{
+            console.log(response);
+          }
+        }
+        catch(err){
+          console.log(err);
+          return Promise.reject();
+        }
+    }
     
 
     // Handle change functions

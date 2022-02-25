@@ -1,15 +1,75 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Col, Container, Form, FormGroup, Row, Button, Input, Label } from "reactstrap";
 import { Link } from "react-router-dom";
 
 import Feature4 from '../assets/images/features/img-4.png';
 import LogoDark from '../assets/images/Covisure.png';
 
-export default class SignUp extends Component {
 
-  render() {
-    return (
-      <React.Fragment>
+function SignUp() {
+
+  const [usernameSign, setUsernameSign] = useState('');
+  const [emailSign, setEmailSign] = useState('');
+  const [passwordSign, setPasswordSign] = useState('');
+
+  // Submit Handler
+  const registerSubmitHandler = async (event)=>{
+    event.preventDefault();
+
+    const registerData = {
+      username : usernameSign,
+      email : emailSign,
+      password : passwordSign
+    }
+    
+    // Sending to Database...
+    try{
+      const userAdded = await fetch('http://localhost:5000/users/register',{
+        method : 'POST',
+        headers : {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(registerData),
+      });
+      //Error handling
+      if (!userAdded.ok) {
+        console.log(userAdded);
+        // get error message from body or default to response status
+        const error = userAdded.message || userAdded.status;
+        return Promise.reject(error);
+      }
+      else{
+        console.log(userAdded);
+      }
+    }
+    catch(err){
+      console.log("Register error" + err);
+      return Promise.reject();
+    }
+
+    // Controlled state
+    setEmailSign('');
+    setPasswordSign('');
+    setUsernameSign('');
+  } 
+  
+
+  // Input change Handlers
+  const handleUserSignChange = (event)=>{
+    setUsernameSign(event.target.value);
+  }
+
+  const handleEmailSignChange = (event)=>{
+    setEmailSign(event.target.value);
+  }
+
+  const handlePasswordSignChange = (event)=>{
+    setPasswordSign(event.target.value);
+  }
+
+
+  return (
+    <React.Fragment>
         <div className="account-home-btn d-none d-sm-block">
         <Link to="/" className="text-primary"><i className="mdi mdi-home h1"></i></Link>
         </div>
@@ -46,32 +106,59 @@ export default class SignUp extends Component {
                                   <p className="text-muted mt-3">Sign up for a new Account</p>
                                 </div>
                                 <div className="p-3 custom-form">
-                                  <Form>
+                                  <Form onSubmit={registerSubmitHandler}>
                                     <FormGroup>
                                       <Label for="firstname">First Name</Label>
-                                      <Input type="text" className="form-control" id="firstname" placeholder="First Name" />
+                                      <Input 
+                                        value = {usernameSign}
+                                        onChange = {handleUserSignChange}
+                                        type="text" 
+                                        className="form-control" 
+                                        id="firstname" 
+                                        placeholder="First Name" 
+                                      />
                                     </FormGroup>
+
                                     <FormGroup>
                                       <Label for="email">Email</Label>
-                                      <Input type="password" className="form-control" id="email" placeholder="Enter Email" />
+                                      <Input 
+                                        type="email" 
+                                        className="form-control" 
+                                        id="email" 
+                                        placeholder="Enter Email" 
+                                        value = {emailSign}
+                                        onChange = {handleEmailSignChange}
+                                      />
                                     </FormGroup>
+
                                     <FormGroup>
                                       <Label for="userpassword">Password</Label>
-                                      <Input type="password" className="form-control" id="userpassword" placeholder="Enter password" />
+                                      <Input 
+                                        type="password" 
+                                        className="form-control" 
+                                        id="userpassword" 
+                                        placeholder="Enter password" 
+                                        value = {passwordSign}
+                                        onChange = {handlePasswordSignChange}
+                                      />
                                     </FormGroup>
+
                                     <div className="custom-control custom-checkbox">
                                       <Input type="checkbox" className="custom-control-input"
                                         id="customControlInline" />
                                       <Label className="custom-control-label"
                                         for="customControlInline">Remember me</Label>
                                     </div>
+
                                     <div className="mt-3">
                                       <Button color="primary" className="btn btn-primary btn-block" block>Sign in</Button>
                                     </div>
+
                                     <div className="mt-4 pt-1 mb-0 text-center">
                                       <p className="mb-0">Don't have an account ?
                                       <Link to="/Login" className="text-success"> Sign in</Link></p>
                                     </div>
+
                                   </Form>
                                 </div>
                               </div>
@@ -88,6 +175,8 @@ export default class SignUp extends Component {
         </section>
 
       </React.Fragment>
-    );
-  }
+  );
 }
+
+export default SignUp;
+

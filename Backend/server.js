@@ -19,7 +19,10 @@ connection.once('open',()=>{
 
 
 const predictorsRouter = require('./routes/predictor');
-app.use('/',predictorsRouter);
+app.use('/predictor',predictorsRouter);
+
+const registersRouter = require('./routes/register');
+app.use('/users', registersRouter);
 
 const port = process.env.port || 5000;
 app.listen(port, ()=>{
