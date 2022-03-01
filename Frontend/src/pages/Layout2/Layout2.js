@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React,{useEffect, useState} from "react";
 
 // Importing Section
 import Navbar from "../../component/Navbar/NavBar";
@@ -11,74 +11,74 @@ import Clients from "../../component/Clients";
 import Contact from "../../component/Contact";
 import Footer from "../../component/Footer/Footer";
 
-class Layout2 extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      navItems: [
+function Layout2() {
+
+  const [navClass, setNavClass] = useState("navbar-light");
+  const [imgLight, setImgLight] = useState(true);
+
+  const [navItems, setNavItems] = useState([
         { id: 1, idnm: "home", navheading: "Home" },
         { id: 2, idnm: "services", navheading: "Services" },
         { id: 3, idnm: "team", navheading: "Team" },
         { id: 4, idnm: "clients", navheading: "Feedback" },
         { id: 5, idnm: "contact", navheading: "Contact" },
-      ],
-      pos: document.documentElement.scrollTop,
-      imglight: true,
-      navClass: "navbar-light",
-      fixTop : true
-    };
-  }
+  ]);
+  
+  const [pos, setPos] = useState(document.documentElement.scrollTop);    
+  const [fixTop, setFixTop] = useState(true);
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.scrollNavigation, true);
-  }
 
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.scrollNavigation, true);
-  }
-
-  scrollNavigation = () => {
+  useEffect(()=> {
+      window.addEventListener("scroll", scrollNavigation, true);
+    return ()=>{
+      window.removeEventListener("scroll", scrollNavigation, true);
+    }
+  });
+  
+  const scrollNavigation = () =>{
     var scrollup = document.documentElement.scrollTop;
-    if (scrollup > this.state.pos) {
-      this.setState({ navClass: "nav-sticky", imglight: false });
-    } else {
-      this.setState({ navClass: "navbar-light", imglight: true });
+    if (scrollup > pos) {
+      setNavClass("nav-sticky");
+      setImgLight(false);
+    } 
+    else {
+      setNavClass("navbar-light");
+      setImgLight(true);
     }
   };
+  
+  return (
+    <React.Fragment >
+        {/* Importing Navbar */}
+        <Navbar
+          navItems={navItems}
+          navClass={navClass}
+          imglight={imgLight}
+          top={fixTop}
+        />
 
-  render() {
-    return (
-      <React.Fragment>
-          {/* Importing Navbar */}
-          <Navbar
-            navItems={this.state.navItems}
-            navClass={this.state.navClass}
-            imglight={this.state.imglight}
-            top={this.state.fixTop}
-          />
+        {/* Importing Section */}
+        <Section />
 
-          {/* Importing Section */}
-          <Section />
+         {/* Importing Service */}
+         <Services />
 
-           {/* Importing Service */}
-           <Services />
+        {/* Importing Pricing */}
+        <Pricing />
 
-          {/* Importing Pricing */}
-          <Pricing />
+        {/* Importing Team */}
+        <Team />
 
-          {/* Importing Team */}
-          <Team />
+        {/* Importing Clients */}
+        <Clients />
 
-          {/* Importing Clients */}
-          <Clients />
+        {/* Importing Contact Us */}
+        <Contact />
 
-          {/* Importing Contact Us */}
-          <Contact />
-
-          {/* Importing Footer */}
-          <Footer />
-      </React.Fragment>
-    );
-  }
+        {/* Importing Footer */}
+        <Footer />
+    </React.Fragment>
+  );
 }
-export default Layout2;
+
+export default Layout2

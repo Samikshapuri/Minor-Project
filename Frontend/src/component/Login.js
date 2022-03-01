@@ -48,6 +48,13 @@ function Login() {
       }
       else{
         console.log(userLoggedIn);
+        const data = userLoggedIn.json();
+
+        if(data.user){
+            alert('Login successful');
+        } else{
+            alert('Please check your userEmail and password')
+        }
       }
     }
     catch(err){
