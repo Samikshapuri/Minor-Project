@@ -1,9 +1,35 @@
+input:focus, input.form-control:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    -webkit-box-shadow: 10px 10px 10px rgb(236, 234, 226);
+    -moz-box-shadow:    10px 10px 10px rgb(216, 214, 207);
+    box-shadow:         10px 10px 10px rgb(226, 225, 219);
+}
+
+.resource-sharing-page{
+   overflow-y: hidden;
+   max-height: 620px;
+}
+
+.mdi-close{
+    border-radius: 10px;
+    -webkit-box-shadow: 10px 10px 10px rgb(117, 117, 114);
+    -moz-box-shadow:    10px 10px 10px rgb(110, 110, 107);
+    box-shadow:         10px 10px 10px rgb(131, 131, 128);
+}
+
+.resource-navbar{
+    -webkit-box-shadow: 10px 10px 10px rgb(236, 234, 226);
+    -moz-box-shadow:    10px 10px 10px rgb(216, 214, 207);
+    box-shadow:         10px 10px 10px rgb(226, 225, 219);
+    z-index:999;
+}
 .resource-nav{
     top: 0;
     left: 0;
     min-height: 100vh;
     z-index: 100;
-    padding: 48px 0 0;
+    padding: 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 }
 
@@ -21,6 +47,25 @@
     text-align: center;   
 }
 
+.d-flex>.me-2{
+    -webkit-box-shadow: 5px 5px 5px rgb(236, 234, 226);
+    -moz-box-shadow:    5px 5px 5px rgb(216, 214, 207);
+    box-shadow:         5px 5px 5px rgb(226, 225, 219);
+    z-index:999;
+    border-radius: 5px;
+}
+
+.rightmost-col2>.resource-list-container{
+    padding: 0 10px;
+}
+
+.rightmost-col2>.resource-list-container>.resource-list-div>.row{
+    margin: 0px;
+    padding: 0px;
+}
+.resource-list-div>.row>.user-list{
+    padding: 5px;
+}
 .hidden-col2{
     opacity: 0;
     overflow: hidden;
@@ -28,13 +73,15 @@
 
 .rightmost-col2{
     opacity: 1;
-    margin: auto;
+    margin-left: 0px;
     padding: 10px;
+    overflow-y: scroll;
+    max-height: 100%;
 }
 
 .user-list{
-    padding: 10px;
-    margin: 10px;
+    padding: 10px 0 0 0;
+    margin: 0;
 }
 
 .user-list>.posts{
@@ -49,7 +96,6 @@
 .form-post{
     padding: 0 30px;
 }
-
 
 *{
     box-sizing: border-box;
@@ -67,7 +113,7 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
-header {
+.header-map {
     width: 100%;
     color: #fff;
     background-color: #263238;

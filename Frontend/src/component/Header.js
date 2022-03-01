@@ -4,7 +4,7 @@ import React from "react";
 function Header() {
   return (
     <div>
-      <header>
+      <header className="header-map">
         <div className="container container-content">
           <h1>Coronavirus (COVID-19)</h1>
           <ul>

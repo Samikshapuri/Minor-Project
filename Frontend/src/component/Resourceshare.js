@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap";
 import React from "react";
 import { useState } from "react";
-import  MapResources from "./MapResources";
+import MapResources from "./MapResources";
 
 const USERS = [
   {
@@ -23,7 +23,52 @@ const USERS = [
     location: "Location",
     des: "Description of your equipments",
     src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-  },  
+  },
+  {
+    title: "Title",
+    topics: "Topics",
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Name",
+    location: "Location",
+    des: "Description of your equipments",
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    title: "Title",
+    topics: "Topics",
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Name",
+    location: "Location",
+    des: "Description of your equipments",
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    title: "Title",
+    topics: "Topics",
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Name",
+    location: "Location",
+    des: "Description of your equipments",
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    title: "Title",
+    topics: "Topics",
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Name",
+    location: "Location",
+    des: "Description of your equipments",
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  },
+  {
+    title: "Title",
+    topics: "Topics",
+    icon: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    name: "Name",
+    location: "Location",
+    des: "Description of your equipments",
+    src: "https://images.pexels.com/photos/5206942/pexels-photo-5206942.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+  }
 ];
 
 function Resourceshare() {
@@ -32,9 +77,7 @@ function Resourceshare() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
-
   const [name, setName] = useState("");
-
   // the search result
   const [foundUsers, setFoundUsers] = useState(USERS);
 
@@ -56,16 +99,24 @@ function Resourceshare() {
   };
 
   return (
-    <div>
+    <div className="resource-sharing-page">
       <React.Fragment>
+        <Navbar className="resource-navbar">
+          <Container>
+            <Navbar.Brand href="#home">Resoure Sharing</Navbar.Brand>
+            <div
+              className="account-home-btn d-none d-sm-block"
+              onClick={toggleShow}
+            >
+              <i className={show?"mdi mdi-menu h1":"mdi mdi-close h3"}></i>
+            </div>
+          </Container>
+        </Navbar>
         <Container fluid>
-          <Row>
-            <Col className="resource-nav" lg={show ? 1 : 2}  >
+          <Row className="resource-row">
+            <Col className="resource-nav" lg={show ? 2 : 1}>
               <Navbar collapseOnSelect expand="lg" variant="light" fixed="left">
                 <Container className="resource-nav-column">
-                  <Navbar.Brand href="#home">
-                    {show ? " " : "Resource-Sharing"}
-                  </Navbar.Brand>
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   <Navbar.Collapse
                     id="responsive-navbar-nav"
@@ -73,60 +124,45 @@ function Resourceshare() {
                   >
                     <Nav className="me-auto" justify variant="tabs">
                       <Nav.Link href="/">
-                        {show ? <i className="mdi mdi-home h4"></i> : "Home"}
+                        <i className="mdi mdi-home h4"></i>
+                        {show ?  "Home":""}
                       </Nav.Link>
                       <Nav.Link
                         href="#offers"
                         onClick={() => setModalShow(true)}
                       >
-                        {show ? (
-                          <i className="mdi mdi-account-multiple h4"></i>
-                        ) : (
-                          "Offers"
-                        )}
+                        <i className="mdi mdi-account-multiple h4"></i>
+                        {show ? "Offers" : ""}
                       </Nav.Link>
                       <Nav.Link
                         href="#requests"
                         onClick={() => setModalShow1(true)}
                       >
-                        {show ? (
-                          <i className="mdi mdi-account-plus h4"></i>
-                        ) : (
-                          "Requests"
-                        )}
+                        <i className="mdi mdi-account-plus h4"></i>
+                        {show ? "Requests" : ""}
                       </Nav.Link>
                       <Nav.Link href="/resourceshare">
-                        {show ? (
-                          <i className="mdi mdi-google-maps h4"></i>
-                        ) : (
-                          "Map"
-                        )}
+                        {" "}
+                        <i className="mdi mdi-google-maps h4"></i>
+                        {show ? "Map" : ""}
                       </Nav.Link>
                     </Nav>
                   </Navbar.Collapse>
                 </Container>
               </Navbar>
             </Col>
-            <Col lg={6} className="col-2-res">
-              
-                <MapResources/>
-              
-              <div
-                className="account-home-btn d-none d-sm-block"
-                onClick={toggleShow}
-              >
-                <i className="mdi mdi-menu h1"></i>
-              </div>
+            <Col lg={7} className="col-2-res">
+              <MapResources />
             </Col>
             <Col
               show={show}
               onHide={handleClose}
-              className={show ? "rightmost-col2" : "hidden-col2"}
-              lg={show ? 5 : 0}
+              className={show ? "hidden-col2" : "rightmost-col2"}
+              lg={show ? 0 : 4}
             >
-              <Container>
+              <Container className="resource-list-container">
                 <Form className="d-flex">
-                  <FormControl 
+                  <FormControl
                     type="search"
                     placeholder="Filter by location and keywords"
                     className="me-2"
@@ -135,15 +171,19 @@ function Resourceshare() {
                     onChange={filter}
                   />
                 </Form>
-                <div>
+                <div className="resource-list-div">
                   <Row>
                     {foundUsers && foundUsers.length > 0 ? (
                       foundUsers.map((USERS) => (
-                        <Col lg={5} md={4} className="user-list">
-                          <Card className="posts">                            
+                        <Col lg={6} md={4} className="user-list">
+                          <Card className="posts">
                             <Card.Body>
-                            <Card.Text>{USERS.name}<br></br>{USERS.location}</Card.Text>
-                              
+                              <Card.Text>
+                                {USERS.name}
+                                <br></br>
+                                {USERS.location}
+                              </Card.Text>
+
                               <Card.Img variant="bottom" src={USERS.src} />
                               <Card.Title>{USERS.title}</Card.Title>
                               <Card.Text>{USERS.des}</Card.Text>
@@ -165,10 +205,7 @@ function Resourceshare() {
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
-      <MyCenteredModal
-        show={modalShow1}
-        onHide={() => setModalShow1(false)}
-      />
+      <MyCenteredModal show={modalShow1} onHide={() => setModalShow1(false)} />
     </div>
   );
 }
@@ -190,18 +227,20 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <Form.Group 
+          <Form.Group
             as={Col}
             className="mb-3 form-post"
             controlId="formPlaintextPassword"
           >
-            <Form.Control required
+            <Form.Control
+              required
               type="password"
               placeholder="What help can you offer?"
               value={USERS.title}
             />
             <br></br>
-            <Form.Control required
+            <Form.Control
+              required
               as="textarea"
               type="password"
               placeholder="Add a description"
@@ -215,7 +254,12 @@ function MyVerticallyCenteredModal(props) {
               Topics
             </Form.Label>
             <Col sm="10">
-              <Form.Control required type="text" placeholder="Add atleast 3 topics" value={USERS.topics}  />
+              <Form.Control
+                required
+                type="text"
+                placeholder="Add atleast 3 topics"
+                value={USERS.topics}
+              />
             </Col>
           </Form.Group>
           <hr></hr>
@@ -224,7 +268,12 @@ function MyVerticallyCenteredModal(props) {
               Name
             </Form.Label>
             <Col sm="10">
-              <Form.Control required type="text" placeholder="Organization's Name" value={USERS.name} />
+              <Form.Control
+                required
+                type="text"
+                placeholder="Organization's Name"
+                value={USERS.name}
+              />
             </Col>
           </Form.Group>{" "}
           <hr></hr>
@@ -237,11 +286,18 @@ function MyVerticallyCenteredModal(props) {
               Location
             </Form.Label>
             <Col sm="10">
-              <Form.Control required type="text" placeholder="Add your location" value={USERS.location} />
+              <Form.Control
+                required
+                type="text"
+                placeholder="Add your location"
+                value={USERS.location}
+              />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId="formFile" className="mb-3">
-            <Form.Label column sm="2"><i className="mdi mdi-folder-multiple-image h4"></i>Add Image</Form.Label>
+            <Form.Label column sm="2">
+              <i className="mdi mdi-folder-multiple-image h4"></i>Add Image
+            </Form.Label>
             <Col sm="10">
               <Form.Control required type="file" />
             </Col>
@@ -255,7 +311,6 @@ function MyVerticallyCenteredModal(props) {
     </Modal>
   );
 }
-
 
 //Request
 
@@ -323,7 +378,9 @@ function MyCenteredModal(props) {
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId="formFile" className="mb-3">
-            <Form.Label column sm="2"><i className="mdi mdi-folder-multiple-image h4"></i>Add Image</Form.Label>
+            <Form.Label column sm="2">
+              <i className="mdi mdi-folder-multiple-image h4"></i>Add Image
+            </Form.Label>
             <Col sm="10">
               <Form.Control type="file" />
             </Col>
