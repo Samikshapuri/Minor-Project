@@ -110,6 +110,7 @@ function Login() {
                                     <FormGroup>
                                       <Label for="useremail">User Email</Label>
                                       <Input  
+                                        required
                                         type="email"  
                                         className="form-control" 
                                         id="useremail"
@@ -122,6 +123,7 @@ function Login() {
                                     <FormGroup>
                                       <Label for="userpassword">Password</Label>
                                       <Input 
+                                        required
                                         type="password" 
                                         className="form-control"
                                         id="userpassword" 
@@ -133,6 +135,7 @@ function Login() {
 
                                     <div className="custom-control custom-checkbox">
                                       <Input type="checkbox" className="custom-control-input"
+                                      required
                                         id="customControlInline" />
                                       <Label className="custom-control-label"
                                         for="customControlInline">Remember me</Label>

@@ -91,7 +91,7 @@ class Footer extends Component {
                   <h5 className="f-20">Subscribe</h5>
                   <div className="subscribe mt-4 pt-1">
                     <Form action="#">
-                      <Input placeholder="Enter Email" type="text" style={{height: 'auto'}}/>
+                      <Input required placeholder="Enter Email" type="text" style={{height: 'auto'}}/>
                       <Button color="primary" className="btn btn-primary"><i className="mdi mdi-send"></i></Button>
                     </Form>
                   </div>

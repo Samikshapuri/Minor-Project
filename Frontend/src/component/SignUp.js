@@ -109,7 +109,7 @@ function SignUp() {
                                   <Form onSubmit={registerSubmitHandler}>
                                     <FormGroup>
                                       <Label for="firstname">First Name</Label>
-                                      <Input 
+                                      <Input required
                                         value = {usernameSign}
                                         onChange = {handleUserSignChange}
                                         type="text" 
@@ -121,7 +121,7 @@ function SignUp() {
 
                                     <FormGroup>
                                       <Label for="email">Email</Label>
-                                      <Input 
+                                      <Input required
                                         type="email" 
                                         className="form-control" 
                                         id="email" 
@@ -133,7 +133,7 @@ function SignUp() {
 
                                     <FormGroup>
                                       <Label for="userpassword">Password</Label>
-                                      <Input 
+                                      <Input required
                                         type="password" 
                                         className="form-control" 
                                         id="userpassword" 
@@ -144,7 +144,7 @@ function SignUp() {
                                     </FormGroup>
 
                                     <div className="custom-control custom-checkbox">
-                                      <Input type="checkbox" className="custom-control-input"
+                                      <Input type="checkbox" className="custom-control-input" required
                                         id="customControlInline" />
                                       <Label className="custom-control-label"
                                         for="customControlInline">Remember me</Label>

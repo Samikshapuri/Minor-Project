@@ -214,6 +214,7 @@ function Predictor() {
                                   <FormGroup>
                                     <Label for="fullname">Full Name</Label>
                                     <Input
+                                      required
                                       onChange = {handleNameChange}
                                       type="text"
                                       className = "form-control"
@@ -226,6 +227,7 @@ function Predictor() {
                                       Body Temperature
                                     </Label>
                                     <Input
+                                      required
                                       type="number"
                                       className="form-control"
                                       id="userpassword"
@@ -240,7 +242,7 @@ function Predictor() {
                                       Upper Blood Pressure
                                     </Label>
                                     <Input
-                                      type="number"
+                                      type="number" required
                                       className="form-control"
                                       id="userpassword"
                                       placeholder="Enter Upper Blood Pressure"
@@ -254,7 +256,7 @@ function Predictor() {
                                       Lower Blood Pressure
                                     </Label>
                                     <Input
-                                      type="number"
+                                      type="number" required
                                       className="form-control"
                                       id="userpassword"
                                       placeholder="Enter Lower Blood Pressure"
@@ -267,7 +269,7 @@ function Predictor() {
                                     <Label for="bloodpressure">
                                       Cardiac Frequency
                                     </Label>
-                                    <Input
+                                    <Input required
                                       type="number"
                                       className="form-control"
                                       id="userpassword"
@@ -278,7 +280,7 @@ function Predictor() {
                                   </FormGroup>
                                   <FormGroup>
                                     <Label for="spo2level">SpO2 Level</Label>
-                                    <Input
+                                    <Input required
                                       type="number"
                                       className="form-control"
                                       id="userpassword"
@@ -289,7 +291,7 @@ function Predictor() {
                                   </FormGroup>
 
                                   <FormGroup check>
-                                    <Input 
+                                    <Input  
                                       type="checkbox" 
                                       value = {fever}
                                       onChange = {handleFeverChange}

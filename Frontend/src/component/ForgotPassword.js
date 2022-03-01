@@ -52,7 +52,7 @@ export default class ForgotPassword extends Component {
                                   <Form>
                                     <FormGroup>
                                       <Label for="email">Email </Label>
-                                      <Input type="email" className="form-control" id="email" placeholder="Enter Email" />
+                                      <Input required type="email" className="form-control" id="email" placeholder="Enter Email" />
                                     </FormGroup>
                                     <div className="mt-3">
                                       <Button className="btn btn-primary btn-block">Reset your Password</Button>

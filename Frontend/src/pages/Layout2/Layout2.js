@@ -16,7 +16,7 @@ function Layout2() {
   const [navClass, setNavClass] = useState("navbar-light");
   const [imgLight, setImgLight] = useState(true);
 
-  const [navItems, setNavItems] = useState([
+  const [navItems] = useState([
         { id: 1, idnm: "home", navheading: "Home" },
         { id: 2, idnm: "services", navheading: "Services" },
         { id: 3, idnm: "team", navheading: "Team" },
@@ -24,8 +24,8 @@ function Layout2() {
         { id: 5, idnm: "contact", navheading: "Contact" },
   ]);
   
-  const [pos, setPos] = useState(document.documentElement.scrollTop);    
-  const [fixTop, setFixTop] = useState(true);
+  const [pos] = useState(document.documentElement.scrollTop);    
+  const [fixTop] = useState(true);
 
 
   useEffect(()=> {

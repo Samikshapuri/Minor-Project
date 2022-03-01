@@ -126,7 +126,7 @@ function Resourceshare() {
             >
               <Container>
                 <Form className="d-flex">
-                  <FormControl
+                  <FormControl 
                     type="search"
                     placeholder="Filter by location and keywords"
                     className="me-2"
@@ -190,18 +190,18 @@ function MyVerticallyCenteredModal(props) {
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <Form.Group
+          <Form.Group 
             as={Col}
             className="mb-3 form-post"
             controlId="formPlaintextPassword"
           >
-            <Form.Control
+            <Form.Control required
               type="password"
               placeholder="What help can you offer?"
               value={USERS.title}
             />
             <br></br>
-            <Form.Control
+            <Form.Control required
               as="textarea"
               type="password"
               placeholder="Add a description"
@@ -215,7 +215,7 @@ function MyVerticallyCenteredModal(props) {
               Topics
             </Form.Label>
             <Col sm="10">
-              <Form.Control type="text" placeholder="Add atleast 3 topics" value={USERS.topics}  />
+              <Form.Control required type="text" placeholder="Add atleast 3 topics" value={USERS.topics}  />
             </Col>
           </Form.Group>
           <hr></hr>
@@ -224,7 +224,7 @@ function MyVerticallyCenteredModal(props) {
               Name
             </Form.Label>
             <Col sm="10">
-              <Form.Control type="text" placeholder="Organization's Name" value={USERS.name} />
+              <Form.Control required type="text" placeholder="Organization's Name" value={USERS.name} />
             </Col>
           </Form.Group>{" "}
           <hr></hr>
@@ -237,13 +237,13 @@ function MyVerticallyCenteredModal(props) {
               Location
             </Form.Label>
             <Col sm="10">
-              <Form.Control type="text" placeholder="Add your location" value={USERS.location} />
+              <Form.Control required type="text" placeholder="Add your location" value={USERS.location} />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId="formFile" className="mb-3">
             <Form.Label column sm="2"><i className="mdi mdi-folder-multiple-image h4"></i>Add Image</Form.Label>
             <Col sm="10">
-              <Form.Control type="file" />
+              <Form.Control required type="file" />
             </Col>
           </Form.Group>
         </Form>
