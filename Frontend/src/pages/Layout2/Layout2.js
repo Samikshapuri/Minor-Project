@@ -20,7 +20,6 @@ function Layout2() {
         { id: 1, idnm: "home", navheading: "Home" },
         { id: 2, idnm: "services", navheading: "Services" },
         { id: 3, idnm: "team", navheading: "Team" },
-        { id: 4, idnm: "clients", navheading: "Feedback" },
         { id: 5, idnm: "contact", navheading: "Contact" },
   ]);
   
@@ -68,9 +67,6 @@ function Layout2() {
 
         {/* Importing Team */}
         <Team />
-
-        {/* Importing Clients */}
-        <Clients />
 
         {/* Importing Contact Us */}
         <Contact />

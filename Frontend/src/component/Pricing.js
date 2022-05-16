@@ -21,12 +21,8 @@ export default class Pricing extends Component {
               </Col>
               <Col lg={6} className="offset-lg-1">
                 <div className="mt-4">
-                  <h2>Team Collaboration in real time</h2>
-                  <p className="mt-4 text-muted">Praesent ut tincidunt massa vel facilisis dui Integer mattis quis
-                  augue in rhoncus Integer mattis enim vel eros bibendum egestas id laoreet nisi
-                  Praesent malesuada eros at bibendum eleifend Nam nec urna hendrerit interdum risus
-                  Donec faucibus quis magna sit amet laoreet Maecenas finibus semper massa in finibus est
-                            venenatis quis.</p>
+                  <h2>Get yourself tested with Covisure!</h2>
+                  <p className="mt-4 text-muted">As the number of cases of COVID-19 continue to fluctuate, local health services are at risk of being overwhelmed with patients requiring intensive care. Providing timely resources lowers the burden on many healthcare systems worldwide as they struggle to treat both COVID-19 patients and maintain essential primary care services.</p>
 
                   <div className="mt-4">
                     <Link to="#" className="btn btn-primary">Explore More</Link>

@@ -14,10 +14,9 @@ class Footer extends Component {
           id: 1,
           title: "Services",
           child: [
-            { title: "Web Design", link: "#" },
-            { title: "Lorem Test", link: "#" },
-            { title: "Credit", link: "#" },
-            { title: "Ui Design", link: "#" },
+            { title: "Covid Prediction", link: "#" },
+            { title: "Resource Sharing", link: "#" },
+            { title: "Covid Stats", link: "#" },
           ],
         },
         {
@@ -45,8 +44,7 @@ class Footer extends Component {
               <Col lg={4}>
                 <div className="footer-info mt-4">
                   <img src={LogoDark} alt="" height="32" />
-                  <p className="text-muted mt-4 mb-2">Aenean lacus enim Praesent congue praesent viverra interdum
-                            maximus lobortis.</p>
+                  <p className="text-muted mt-4 mb-2">Predict your disease now</p>
                   <div className="team-social mt-4 pt-2">
                     <ul className="list-inline mb-0">
                       <li className="list-inline-item">

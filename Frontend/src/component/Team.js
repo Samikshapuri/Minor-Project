@@ -8,7 +8,7 @@ import Slider from "react-slick";
 import HomeUrl from '../assets/images/home-border.png';
 
 import Img1 from '../assets/images/users/megha.jpg';
-import Img2 from '../assets/images/users/img-2.png';
+import Img2 from '../assets/images/users/Samiksha.jpeg';
 import Img3 from '../assets/images/users/sarthak.jpg';
 import Img4 from '../assets/images/users/yukt.jpg';
 
@@ -22,28 +22,28 @@ export default class Contact extends Component {
           img: Img1,
           name: 'Megha Gupta',
           nickname: 'megha',
-          description: 'Anterdum maleada fames Integer molestie ante primis nulla facibus felis ulputate platea elit.'
+          description: 'Frontend Engineer'
         },
         {
           id: 2,
           img: Img2,
           name: 'Samiksha Puri',
           nickname: 'samiksha',
-          description: 'Anterdum maleada fames Integer molestie ante primis nulla facibus felis ulputate platea elit.'
+          description: 'Web Developer'
         },
         {
           id: 3,
           img: Img3,
           name: 'Sarthak Saxena',
           nickname: 'sarthak',
-          description: 'Anterdum maleada fames Integer molestie ante primis nulla facibus felis ulputate platea elit.'
+          description: 'Web Developer'
         },
         {
           id: 4,
           img: Img4,
           name: 'Yukt Kataria',
           nickname: 'yukt',
-          description: 'Anterdum maleada fames Integer molestie ante primis nulla facibus felis ulputate platea elit.'
+          description: 'Web Developer'
         },
       ],
     };
@@ -103,8 +103,7 @@ export default class Contact extends Component {
             <Row>
               <Col lg="12">
                 <div className="title-box text-center">
-                  <h3 className="title-heading mt-4">Meet Our Experts</h3>
-                  <p className="text-muted f-17 mt-3">Vivamus ac nulla ultrices laoreet neque mollis mi morbi elementum mauris sit amet arcu <br /> fringilla auctor In eleifend maximus nisi sed vulputate.</p>
+                  <h3 className="title-heading mt-4"><br/>Meet Our Experts</h3>            
                   <img src={HomeUrl} height="15" className="mt-3" alt="" />
                 </div>
               </Col>
@@ -126,10 +125,7 @@ export default class Contact extends Component {
               <Col lg={9}>
                 <div className="text-center">
                   <h2>Get Started With <span className="text-primary">Covisure</span></h2>
-                  <p className="text-muted mt-3">Quisque iaculis urna eu magna semper quis ultrices lectus efficitur
-                  Praesent convallis
-                  velit urna, vitae tristique tellus feugiat a maecenas diam metus convallis id cursus vel
-                            tellus.<br /> Curabitur ullamcorper feugiat convallis.</p>
+                  <p className="text-muted mt-3">Getting yourself tested for Covid-19 is critically important for pandemic response, as a tool for gathering information on who is infected, where, and when. Accurate estimates of the number of people infected within a population are the cornerstone of evidence-based public health decision-making during an epidemic, and can help hospitals and other frontline services plan, prepare, and more effectively respond.</p>
                   <div className="mt-4 pt-2">
                     <Link to="#" className="btn btn-soft-primary btn-round mr-3 btn-rounded">Request a demo</Link>
                     <Link to="#" className="btn btn-primary btn-round btn-rounded">Get Started Now</Link>
