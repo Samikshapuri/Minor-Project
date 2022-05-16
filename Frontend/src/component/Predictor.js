@@ -11,13 +11,15 @@ import {
   Label,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-
+import Alert from 'react-bootstrap/Alert'
 import Feature4 from "../assets/images/features/img-4.png";
 import LogoDark from "../assets/images/Covisure.png";
 
 
 function Predictor() {
-
+    let p=1;
+    const [show, setShow] = useState(false);
+    const [show1, setShow1] = useState(false);
     //State variables for the input fields 
     const [name, setName] = useState("");
     const [temp, setTemp] = useState("");
@@ -172,8 +174,6 @@ function Predictor() {
         setMusclePain(0);
       }
     }
-
-
     
     return (
     <React.Fragment>
@@ -360,6 +360,7 @@ function Predictor() {
                                       color="primary"
                                       className="btn btn-primary btn-block"
                                       block
+                                      onSubmit={() =>{ p==0? setShow(true): setShow1(true)}}
                                     >
                                       Submit
                                     </Button>
@@ -390,9 +391,54 @@ function Predictor() {
           </div>
         </div>
       </section>
+      <AlertDismissible
+        show={show}
+        onHide={() => setShow(false)}
+      />
+      <AlertDismissible2
+        show={show1}
+        onHide={() => setShow1(false)}
+      />
     </React.Fragment>
+    
   );
 }
 
 export default Predictor;
 
+function AlertDismissible(props) {
+  return (
+    <>
+      <Alert {...props} variant="success">
+        <Alert.Heading>Prediction Results!</Alert.Heading>
+        <p>
+          You are tested negative!!
+        </p>
+        <hr />
+        <div className="d-flex justify-content-end">
+          <Button onClick={props.onHide} variant="outline-success">
+            Close me y'all!
+          </Button>
+        </div>
+      </Alert>
+    </>
+  );
+}
+function AlertDismissible2(props) {
+  return (
+    <>
+      <Alert {...props} variant="success">
+        <Alert.Heading>Prediction Results!</Alert.Heading>
+        <p>
+          You are tested positive!!
+        </p>
+        <hr />
+        <div className="d-flex justify-content-end">
+          <Button onClick={props.onHide} variant="outline-success">
+            Close me y'all!
+          </Button>
+        </div>
+      </Alert>
+    </>
+  );
+}

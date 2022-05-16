@@ -44,8 +44,8 @@ export default class Services extends Component {
         {
           id: '2',
           extraclass: 'pt-3',
-          start: 25,
-          end: 76,
+          start: 1,
+          end: 3,
           title: "Filters",
           description: 'Available for searching in aforementioned list'
         },

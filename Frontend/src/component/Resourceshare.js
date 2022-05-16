@@ -336,7 +336,7 @@ function MyCenteredModal(props) {
           >
             <Form.Control
               type="password"
-              placeholder="What help can you offer?"
+              placeholder="What help do you want?"
             />
             <br></br>
             <Form.Control
@@ -361,7 +361,7 @@ function MyCenteredModal(props) {
               Name
             </Form.Label>
             <Col sm="10">
-              <Form.Control type="text" placeholder="Organization's Name" />
+              <Form.Control type="text" placeholder="Organization's/ Your Name" />
             </Col>
           </Form.Group>{" "}
           <hr></hr>

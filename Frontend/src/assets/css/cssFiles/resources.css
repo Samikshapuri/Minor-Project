@@ -71,6 +71,16 @@ input:focus, input.form-control:focus {
     overflow: hidden;
 }
 
+.resource-list-div{
+                margin:4px, 4px;
+                padding:4px;
+                
+                width: 400px;
+                height: 500px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                text-align:justify;
+}
 .rightmost-col2{
     opacity: 1;
     margin-left: 0px;
@@ -241,4 +251,13 @@ header a svg {
 
 .tracker-last-updated p {
     margin: 0;
+}
+
+
+.alert{
+    position: absolute;
+    top: -300px;
+    left: 500px;
+    width: 500px;
+    
 }
