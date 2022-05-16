@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Col, Container, Form, FormGroup, Row, Button, Input, Label } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import Feature4 from '../assets/images/features/img-4.png';
 import LogoDark from '../assets/images/Covisure.png';
 
+// import { useHistory } from "react-router-dom";
 
 function SignUp() {
-
+  const history = useHistory();
   const [usernameSign, setUsernameSign] = useState('');
   const [emailSign, setEmailSign] = useState('');
   const [passwordSign, setPasswordSign] = useState('');
@@ -39,7 +40,16 @@ function SignUp() {
         return Promise.reject(error);
       }
       else{
-        console.log(userAdded);
+        // console.log(userAdded);
+        const data = await userAdded;
+        
+        console.log(data);
+
+        console.log(data.status);
+        if(data.ok == true){
+          console.log("In history pg");
+          history.push('/Login');
+        }
       }
     }
     catch(err){

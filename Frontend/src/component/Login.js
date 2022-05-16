@@ -47,13 +47,23 @@ function Login() {
         return Promise.reject(error);
       }
       else{
-        console.log(userLoggedIn);
-        const data = userLoggedIn.json();
+        console.log("User login details" + userLoggedIn);
+        // If user is found in Response
+        const data = await userLoggedIn.json();
+        console.log(data);
+        console.log(data.user);
 
-        if(data.user){
+        if(data.user=='true'){
             alert('Login successful');
+            window.location.href = '/Dashboard';
+            // Adding login token to local storage
+            localStorage.setItem('token',data.userToken);
+            console.log(data.userToken);
+
+            // Redirecting to home page after Login
+            window.location.href = './'
         } else{
-            alert('Please check your userEmail and password')
+            alert('Please check your userEmail and password');
         }
       }
     }
