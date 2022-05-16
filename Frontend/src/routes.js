@@ -6,6 +6,7 @@ import ForgotPassword from "../src/component/ForgotPassword";
 import Statistics from "../src/component/stats";
 import Predictor from "../src/component/Predictor";
 import Resourceshare from "../src/component/Resourceshare";
+import Dashboard from "./component/Dashboard";
 
 const routes = [
   { path: "/Login", component: Login },
@@ -16,7 +17,8 @@ const routes = [
   { path: "/Map", component: Predictor },
   { path: "/resourceshare", component: Resourceshare },
   { path: "/stats", component: Statistics },
-  { path: "/", component: Layout2 },  
+  { path: "/", component: Layout2 }, 
+  { path: "/Dashboard", component: Dashboard}
 ];
 
 export default routes;

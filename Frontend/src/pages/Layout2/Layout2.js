@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from "react";
+import { useHistory } from "react-router-dom";
 
 // Importing Section
 import Navbar from "../../component/Navbar/NavBar";
@@ -10,6 +11,9 @@ import Team from "../../component/Team";
 import Clients from "../../component/Clients";
 import Contact from "../../component/Contact";
 import Footer from "../../component/Footer/Footer";
+
+// Authentication
+import jwt from 'jsonwebtoken';
 
 function Layout2() {
 
@@ -33,6 +37,35 @@ function Layout2() {
       window.removeEventListener("scroll", scrollNavigation, true);
     }
   });
+
+
+  // const populateQuote = async ()=>{
+
+  //   const req = await fetch('',{
+  //     headers: {
+  //       'x-access-token': localStorage.getItem('token')
+  //     },
+  //   })
+
+  //   const data = req.json()
+  //   console.log(data);
+  // }
+
+  // const history = useHistory();
+  // useEffect(()=>{
+  //   const token = localStorage.getItem('token');
+
+  //   if(token){
+  //     const user = jwt.decode(token);
+  //     if(!user){
+  //       localStorage.removeItem('token');
+  //       history.replace('/login');
+  //     }
+  //   }
+  //   else{
+  //     populateQuote();
+  //   }
+  // },[])
   
   const scrollNavigation = () =>{
     var scrollup = document.documentElement.scrollTop;

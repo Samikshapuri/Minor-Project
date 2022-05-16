@@ -2,6 +2,9 @@ const router = require('express').Router();
 const fs = require('fs');
 let Predictor = require('../models/predictor.model');
 
+// Integrating Python Script
+const {spawn} = require('child_process');
+
 router.post('/', (req,res)=>{
     console.log("Hii");
     console.log(req.body);
@@ -29,6 +32,26 @@ router.post('/', (req,res)=>{
         else{
           console.log("JSON File for predictor data created");
         }
+    })
+
+    // Calling Python script
+    var dataReceived;
+    const python = spawn('python', ['./routes/predictorScript.py']);
+    console.log('Python Script called');
+
+    python.stdout.on('data',function(data){
+      console.log('Data received from Python script');
+      dataReceived = data.toString();
+      console.log("kya"+ dataReceived);
+    });
+
+    python.stderr.on('data',data=>{
+      console.error(`stderr:${data}`);
+    });
+
+    python.on('exit',()=>{
+      // res.send(dataReceived);
+      console.log('Python script closed');
     })
 
     newPredictor.save()

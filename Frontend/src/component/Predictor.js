@@ -34,6 +34,7 @@ function Predictor() {
 
     // Sending Predictor Data to the Database
     const handlePredictorSubmit = async (event)=>{
+
         
         event.preventDefault();
         let _id = Math.random();
@@ -76,6 +77,14 @@ function Predictor() {
           console.log(err);
           return Promise.reject();
         }
+
+        setName("");
+        setTemp("");
+        setCard_freq("");
+        setUpper_bp("");
+        setLower_bp("");
+        setSpo2("");
+
     }
     
 
@@ -164,6 +173,8 @@ function Predictor() {
       }
     }
 
+
+    
     return (
     <React.Fragment>
       <div className="account-home-btn d-none d-sm-block">
