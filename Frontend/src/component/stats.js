@@ -56,36 +56,3 @@ class stats extends Component {
   }
   
   export default stats;
-//  render() {
-//     return (
-//       <React.Fragment>
-//         <div className="account-home-btn d-none d-sm-block">
-//         <Link to="/" className="text-primary"><i className="mdi mdi-home h1"></i></Link>
-//         </div>
-
-//         <div className="app">
-//             <div className="app__left">
-//                 <div className="app__header">
-//                     <p className="text-muted  f-20 mt-3">COVID-19 Statistics</p>
-//                     <FormControl className="app__dropdown">
-//                       <Select
-//                         variant="outlined"
-//                         value="abc"
-//                       >
-//                        <MenuItem value="worldwide">Worldwide</MenuItem>
-//                        <MenuItem value="worldwide">World</MenuItem>
-//                        <MenuItem value="worldwide">Woooo</MenuItem>
-//                        <MenuItem value="worldwide">Wore</MenuItem>
-//                        {/* {countries.map((country) => (
-//                        <MenuItem value={country.value}>{country.name}</MenuItem>
-//                        ))} */}
-//                        </Select>
-//                     </FormControl>
-//                 </div>
-//             </div>
-//         </div>
-
-//       </React.Fragment>
-//     );
-//    }
-//  }

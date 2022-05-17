@@ -3,11 +3,12 @@
 import {MapContainer, TileLayer, Marker,Popup } from 'react-leaflet';
 import React from 'react';
 import 'leaflet/dist/leaflet.css';
-
+import markerIconPng from "leaflet/dist/images/marker-icon.png"
+import {Icon} from 'leaflet'
 
 function Map(props) {
   return <div>
-      <MapContainer className="map" center={[2.5, 112.5]} zoom={3} scrollWheelZoom={false}>
+      <MapContainer className="map" style={{height:'450px'}} center={[2.5, 112.5]} zoom={3} scrollWheelZoom={false}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                  url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -16,7 +17,7 @@ function Map(props) {
              {props.data.map((statistic, index) => {
                  const updated = new Date(statistic.updated);
                  return (
-                     <Marker key={index} position={[statistic.countryInfo.lat, statistic.countryInfo.long]}>
+                     <Marker icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})} key={index} position={[statistic.countryInfo.lat, statistic.countryInfo.long]}>
                          <Popup>
                              <h2><img alt=" " src= {statistic.countryInfo.flag} height="20px" width="25px"/> {statistic.country}</h2>
                               <strong>Confirmed:</strong> {statistic.cases.toLocaleString()}<br/>

@@ -7,7 +7,8 @@ import { Circle,
   Marker, } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useCallback, useMemo, useRef, useState } from 'react';
-
+import markerIconPng from "leaflet/dist/images/marker-icon.png"
+import {Icon} from 'leaflet'
 
 const center = [51.505, -0.09]
 const fillBlueOptions = { fillColor: 'blue' }
@@ -33,7 +34,7 @@ function DraggableMarker() {
   }, [])
 
   return (
-    <Marker
+    <Marker icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}
       draggable={draggable}
       eventHandlers={eventHandlers}
       position={position}
@@ -52,7 +53,7 @@ function DraggableMarker() {
 
 function MapResources() {
   return <div>
-    <MapContainer center={[51.505, -0.09]} zoom={15} style={{height:'580px' ,width:'780px'}} >
+    <MapContainer center={[51.505, -0.09]} zoom={15} style={{height:'580px' ,width:'710px'}} >
   <TileLayer
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />

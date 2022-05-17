@@ -6,7 +6,7 @@ function Header() {
     <div>
       <header className="header-map">
         <div className="container container-content">
-          <h1>Coronavirus (COVID-19)</h1>
+          <h1 className="stats-head">Coronavirus (COVID-19)</h1>
           <ul>
             
               <li>
